@@ -46,7 +46,7 @@ main {
             box-shadow: 1px 10px 22px 9px rgb(0 0 0 / 16%);
         }
 
-        figcaption {
+        h1 {
             font-weight: 700;
             font-size: 21px;
             color: var(--midnight-blue);
