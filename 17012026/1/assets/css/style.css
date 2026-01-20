@@ -1,0 +1,251 @@
+/* Make 100% copy of design from Figma! */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: KumbhSans;
+  src: url(../fonts/KumbhSans.ttf);
+  font-display: swap;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #19A1AE;
+    position: relative;
+    font-family: KumbhSans;
+    font-weight: 400;
+}
+
+.main-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    top: auto;
+    left: auto;
+    overflow: hidden;
+}
+
+.profile-card {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 50px 100px -20px rgba(8, 70, 94, 0.25);
+    cursor: pointer;
+}
+
+.profile-card:hover {
+    box-shadow: 0px 50px 100px -20px rgb(219 219 219 / 35%);
+    /* By default count of animation is 1 */
+    animation: moveUp 1s 5; 
+}
+
+.gradient-left {
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2000px;
+    height: 2000px;
+    background: linear-gradient(180deg, rgba(9, 137, 180, 0.0001) 0.78%, #53FFEE 99.94%);
+    opacity: 0.5;
+    transform: translate(-35%, -50%) rotate(0deg);
+    will-change: transform;
+    pointer-events: none;
+    animation: gradient-rotate 5s linear 2;
+}
+
+.gradient-right {
+    border-radius: 50%;
+    position: absolute;
+    width: 2000px;
+    height: 2000px;
+    right: 0;
+    bottom: 0;
+    transform: translate(31%, 56%) rotate(-135deg);
+    background: linear-gradient(180deg, rgba(9, 137, 180, 0.0001) 0.78%, #53FFEE 99.94%);
+    opacity: 0.25;
+    animation: gradient-spin-right 5s linear 2;
+}
+
+.profile-cover {
+    background-color: #41CBD3;
+    background-image: url(../img/cover.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 144px;
+    border-radius: 15px 15px 0px 0px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.profile-photo {
+    width: 96px;
+    height: 96px;
+    background-image: url(../img/photo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.profile-photo:hover {
+    /* We can also put 2 or more animations in one element, speed is 1sec and count of repeat is 2 for zoomItem, also for rotate is default 1 */
+    animation: rotate 1s, zoomItem 1s 5;
+}
+
+.profile-info h3 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.profile-info h4 {
+    text-align: center;
+    font-weight: 400;
+    color: #6B7082;
+    font-size: 14px;
+}
+
+.profile-age {
+    color: #6B7082;
+    font-weight: 400;
+}
+
+.profile-stat {
+    min-height: 70px;
+    margin-top: 30px;
+    display: block;
+    text-align: center;
+}
+
+.profile-stat .statistics {
+    width: 70px;
+    display: inline-block;
+    align-content: center;
+    align-items: center;
+    color: #6B7082;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.profile-stat .statistics .stat {
+    color: #2E3349;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 125%;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .main-wrapper {
+        width:100%;
+        height:100%;
+        max-width: 1024px;
+        max-height: 720px;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        overflow: visible;
+    }
+    .gradient-left, .gradient-right {
+        width: 1000px;
+        height: 1000px;
+    }
+    .gradient-left {
+        transform: translate(-34%, -74%) rotate(-135deg);
+        animation: gradient-rotate_tablet 5s linear 2;
+    }
+    .gradient-right {
+        transform: translate(44%, 67%) rotate(-135deg);
+        animation: gradient-spin-right_tablet 5s linear 2;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main-wrapper {
+        width:100%;
+        height:100%;
+        max-width: 768px;
+        max-height: 720px;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        overflow: visible;
+    }
+    .gradient-left, .gradient-right {
+        width: 500px;
+        height: 500px;
+    }
+    .gradient-left {
+        transform: translate(-42%, -55%) rotate(-135deg);
+        animation: none;
+    }
+    .gradient-right {
+        transform: translate(50%, 50%) rotate(-135deg);
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@keyframes moveUp {
+    0% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -55%); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes rotate {
+    0% { transform: translate(-50%, 50%) rotate(0deg); }
+    50% { transform: translate(-50%, 50%) rotate(360deg); }
+    100% { transform: translate(-50%, 50%) rotate(-360deg); }
+}
+
+@keyframes zoomItem {
+    0%   { transform: translate(-50%, 50%) scale(1); }
+    50%  { transform: translate(-50%, 50%) scale(1.55); }
+    100% { transform: translate(-50%, 50%) scale(1); }
+}
+
+@keyframes gradient-rotate {
+    from { transform: translate(-35%, -50%) rotate(0deg); }
+    to { transform: translate(-35%, -50%) rotate(360deg); }
+}
+
+@keyframes gradient-spin-right {
+    from { transform: translate(31%, 56%) rotate(-135deg); }
+    to { transform: translate(31%, 56%) rotate(225deg); }
+}
+
+@keyframes gradient-rotate_tablet {
+    from { transform: translate(-34%, -74%) rotate(0deg); }
+    to { transform: translate(-34%, -74%) rotate(360deg); }
+}
+
+@keyframes gradient-spin-right_tablet {
+    from { transform: translate(44%, 67%) rotate(-135deg); }
+    to { transform: translate(44%, 67%) rotate(225deg); }
+}
