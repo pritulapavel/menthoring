@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  line-height: 1;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+img,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+::selection {
+  background: rgba(255, 107, 26, 0.3);
+}
+
+@font-face {
+  font-family: "Gambetta";
+  src: url("../fonts/Gambetta.ttf") format("truetype");
+}
+:root {
+  --text-color: #0E1011;
+  --text-color-muted: rgba(14, 16, 17, 0.6);
+  --bg-main: #F8F8F8;
+  --bg-second: #FFFFFF;
+}
+
+input {
+  display: none;
+}
+
+.main-wrapper {
+  max-width: 192rem;
+  margin: 0 auto;
+  color: var(--text-color);
+  background-color: var(--bg-second);
+  position: relative;
+}
+.main-wrapper .header-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3.2rem 62.4rem;
+  justify-content: center;
+  align-items: center;
+  gap: 9.6rem;
+  padding: 9.6rem;
+}
+.main-wrapper .header-wrapper .heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  font-size: 2rem;
+}
+.main-wrapper .header-wrapper .heading span:first-child, .main-wrapper .header-wrapper .heading span:last-child {
+  font-family: "Gambetta";
+  font-style: italic;
+  font-size: 3.2rem;
+  color: var(--text-color-muted);
+}
+.main-wrapper .header-wrapper .heading span:first-child {
+  justify-self: left;
+}
+.main-wrapper .header-wrapper .heading span:last-child {
+  justify-self: right;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.main-wrapper .header-wrapper .heading span:last-child label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 10rem;
+  height: 6rem;
+  border-radius: 15px;
+  position: fixed;
+  top: 20px;
+  background-color: #7b7b7b;
+}
+.main-wrapper .header-wrapper .heading span:last-child label svg {
+  width: 40px;
+  height: 40px;
+}
+.main-wrapper .header-wrapper .description {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+.main-wrapper .header-wrapper .description h1 {
+  font-family: "Anton SC";
+  font-weight: 400;
+  font-size: 32rem;
+  text-transform: uppercase;
+}
+.main-wrapper .header-wrapper .description p {
+  max-width: 140rem;
+  font-weight: 600;
+  font-size: 8rem;
+}
+.main-wrapper .content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 108rem);
+  justify-content: center;
+  align-items: center;
+}
+.main-wrapper .content-wrapper .card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+.main-wrapper .content-wrapper .card-wrapper:nth-child(2) {
+  background-color: var(--bg-second);
+}
+.main-wrapper .content-wrapper .card-wrapper:nth-child(1),
+.main-wrapper .content-wrapper .card-wrapper:nth-child(3) {
+  background-color: var(--bg-main);
+}
+.main-wrapper .content-wrapper .small-card {
+  width: 80rem;
+  height: 108rem;
+}
+.main-wrapper .content-wrapper .big-card {
+  width: 112rem;
+  height: 108rem;
+  padding: 12.8rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 38.4rem 14.8rem;
+  justify-content: center;
+  align-items: center;
+  gap: 29.2rem;
+}
+.main-wrapper .content-wrapper .big-card .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 26.6rem 11.2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+.main-wrapper .content-wrapper .big-card .content h2 {
+  font-family: "Anton SC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12.8rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  max-width: min-content;
+}
+.main-wrapper .content-wrapper .big-card .content p {
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 140%;
+  max-width: 77rem;
+}
+.main-wrapper .content-wrapper .big-card .story {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.2rem;
+}
+.main-wrapper .content-wrapper .big-card .story .heading {
+  font-family: "Gambetta";
+  font-style: italic;
+  font-size: 3.2rem;
+  color: var(--text-color-muted);
+}
+.main-wrapper .content-wrapper .big-card .story .description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: 9.4rem;
+}
+.main-wrapper .content-wrapper .big-card .story .description .left {
+  justify-self: left;
+  font-weight: 600;
+  font-size: 32px;
+}
+.main-wrapper .content-wrapper .big-card .story .description .right {
+  justify-self: right;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.main-wrapper:has(#toggle-light:checked) {
+  --text-color: #FFFFFF;
+  --text-color-muted: rgba(255,255,255,0.6);
+  --bg-main: #181A1B;
+  --bg-second: #0E1011;
+}
+
+.bg-1, .bg-2, .bg-3 {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.bg-1 {
+  background-image: url(../img/img1.png);
+}
+
+.bg-2 {
+  background-image: url(../img/img2.png);
+}
+
+.bg-3 {
+  background-image: url(../img/img3.png);
+}
+
+/*# sourceMappingURL=style.css.map */

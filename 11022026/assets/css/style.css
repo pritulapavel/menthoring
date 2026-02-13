@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url(../fonts/work-sans/WorkSans-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url(../fonts/work-sans/WorkSans-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url(../fonts/work-sans/WorkSans-Bold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Yeseva';
+    src: url(../fonts/yeseva-one/YesevaOne-Regular.ttf);
+    font-weight: 400;
+}
+
+:root {
+    --heading-size-h1: 4.8rem;
+    --heading-size-h2: 3.2rem;
+    --text-size-title: 2.6rem;
+    --text-size-caption: 1.8rem;
+    --text-size-body-1: 1.6rem;
+    --text-size-body-2: 1.8rem;
+    --text-size-button: 1.6rem;
+    --text-size-small: 1.6rem;
+    --color-primary: #1F2B6C;
+    --color-accent: #159EEC;
+    --color-secondary: #BFD2F8;
+    --main-text-color: #000000;
+    --button-radius: 5rem;
+    --box-radius: 0.5rem;
+}
+
+body, html {
+    font-family: 'Yeseva', sans-serif;
+    font-size: 62.5%;
+}

@@ -1,0 +1,149 @@
+@use "reset";
+@use "variables";
+
+@mixin block($type, $direction: row, $justify: center, $align: center, $columns: 1fr, $rows: 1fr, $gap: 0) {
+    display: $type;
+    @if $type == 'flex' { flex-direction: $direction; }
+    @else if $type == 'grid' { grid-template-columns: $columns; grid-template-rows: $rows;}
+    @else { @error "გთხოვთ მიუთითოთ სწორი პარამეტრი (#{$type}). display შეიძლება იყოს მხოლოდ GRID ან FLEX"; }  
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+:root {
+  --text-color: #{variables.$text-color};
+  --text-color-muted: #{variables.$text-color-muted};
+  --bg-main: #{variables.$bg-main};
+  --bg-second: #{variables.$bg-second};
+}
+input {display: none;}
+.main-wrapper {
+    max-width: 192rem;
+    margin: 0 auto;
+    color: var(--text-color);
+    background-color: var(--bg-second);
+    position: relative;
+    
+    .header-wrapper {
+        @include block(grid, null, center, center, 1fr, 3.2rem 62.4rem, 9.6rem);
+        padding: 9.6rem;
+        .heading {
+            @include block(grid, null, null, center, 1fr 1fr, 1fr, null);
+            font-size: 2rem;
+
+            & span:first-child,
+            & span:last-child {
+                font-family: 'Gambetta';
+                font-style: italic;
+                font-size: 3.2rem;
+                color: var(--text-color-muted);
+            }
+
+            & span:first-child { justify-self: left; }
+            & span:last-child  { 
+                justify-self: right;display: flex;align-items: center;gap: 2rem;
+                label {
+                    @include block(flex, null, center, center, null, null);
+                    width: 10rem;
+                    height: 6rem;
+                    border-radius: 15px;
+                    position: fixed;
+                    top: 20px;
+                    background-color: #7b7b7b;
+
+                    & svg {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+         }
+
+        .description {
+            @include block(grid, column, center, flex-start, 1fr, 1fr 1fr, null);
+            gap: 1.6rem;
+            & h1 {
+                font-family: 'Anton SC';
+                font-weight: 400;
+                font-size: 32rem;
+                text-transform: uppercase;
+            }
+            & p {
+                max-width: 140rem;
+                font-weight: 600;
+                font-size: 8rem;
+            }
+        }
+  }
+
+  .content-wrapper {
+        @include block(grid, null, center, center, 1fr, repeat(3, 108rem), null);
+        .card-wrapper {
+            @include block(flex, null, center, center, null, null);
+        }
+        .card-wrapper:nth-child(2) { background-color: var(--bg-second); }
+        .card-wrapper:nth-child(1),
+        .card-wrapper:nth-child(3) { background-color: var(--bg-main); }
+        .small-card {
+            width: 80rem;
+            height: 108rem;
+        }
+        .big-card {
+            width: 112rem;
+            height: 108rem;
+            padding: 12.8rem;
+            @include block(grid, null, center, center, 1fr, 38.4rem 14.8rem, 29.2rem);
+            .content {
+                @include block(grid, null, center, center, 1fr, 26.6rem 11.2rem, 1.6rem);
+
+                & h2 {
+                    font-family: 'Anton SC';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12.8rem;
+                    line-height: 100%;
+                    text-transform: uppercase;
+                    max-width: min-content;
+                }
+                & p {
+                    font-weight: 600;
+                    font-size: 4rem;
+                    line-height: 140%;
+                    max-width: 77rem;
+                }
+            }
+            .story {
+                @include block(flex, column, center, null, null, null, 3.2rem);
+                .heading {
+                    font-family: 'Gambetta';
+                    font-style: italic;
+                    font-size: 3.2rem;
+                    color: var(--text-color-muted);
+                }
+                .description {
+                    @include block(grid, null, null, center, 1fr 1fr,  1fr, 9.4rem);
+                    & .left { justify-self: left; font-weight: 600; font-size: 32px; }
+                    & .right { justify-self: right; font-weight: 600; font-size: 32px; }
+                }
+            }
+        }
+    }
+    
+}
+.main-wrapper:has(#toggle-light:checked) {
+    --text-color: #FFFFFF;
+    --text-color-muted: rgba(255,255,255,0.6);
+    --bg-main: #181A1B;
+    --bg-second: #0E1011;
+}
+
+.bg-1, .bg-2, .bg-3 {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+.bg-1 { background-image: url(../img/img1.png); }
+.bg-2 { background-image: url(../img/img2.png); }
+.bg-3 { background-image: url(../img/img3.png); }
