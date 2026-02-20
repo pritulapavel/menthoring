@@ -1,3 +1,21 @@
+/* Default variables */
+/* light theme */
+/* dark theme */
+@font-face {
+  font-family: "Anton SC";
+  font-display: swap;
+  src: url("../fonts/Anton.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
+  src: url("../fonts/Inter.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Gambetta";
+  font-display: swap;
+  src: url("../fonts/Gambetta.ttf") format("truetype");
+}
 *,
 *::before,
 *::after {
@@ -59,82 +77,83 @@ select {
 }
 
 ::selection {
-  background: rgba(255, 107, 26, 0.3);
+  background: rgba(255, 89, 0, 0.726);
 }
 
-@font-face {
-  font-family: "Gambetta";
-  src: url("../fonts/Gambetta.ttf") format("truetype");
-}
-:root {
-  --text-color: #0E1011;
-  --text-color-muted: rgba(14, 16, 17, 0.6);
-  --bg-main: #F8F8F8;
-  --bg-second: #FFFFFF;
-  --toggle-bg: #0E1011;
-  --toggle-color: #F8F8F8;
-}
-
-input {
+figcaption {
   display: none;
 }
 
-.bg-1 {
-  background-image: url(../img/img1.png);
-}
-
-.bg-2 {
-  background-image: url(../img/img2.png);
-}
-
-.bg-3 {
-  background-image: url(../img/img3.png);
+.content-wrapper .big-card .story .heading, .heading span:first-child,
+.heading span:last-child {
+  font-family: "Gambetta", sans-serif;
+  font-style: italic;
+  font-size: clamp(2rem, 2.5vw, 3.2rem);
+  color: rgba(14, 16, 17, 0.6);
 }
 
 h1, h2 {
-  font-family: "Anton SC";
-  font-style: normal;
+  font-family: "Anton SC", sans-serif;
   font-weight: 400;
+}
+
+#toggle-light {
+  display: none;
 }
 
 .main-wrapper {
   max-width: 192rem;
   margin: 0 auto;
-  color: var(--text-color);
-  background-color: var(--bg-second);
   position: relative;
+  color: #0E1011;
+  background-color: #FFFFFF;
 }
-.main-wrapper .header-wrapper {
+.main-wrapper:has(#toggle-light:checked) {
+  color: #ffffff;
+  background-color: #0e1011;
+}
+.main-wrapper:has(#toggle-light:checked) .heading span:first-child,
+.main-wrapper:has(#toggle-light:checked) .heading span:last-child,
+.main-wrapper:has(#toggle-light:checked) .story .heading {
+  color: rgba(255, 255, 255, 0.6);
+}
+.main-wrapper:has(#toggle-light:checked) .card-wrapper {
+  background-color: #181a1b;
+}
+.main-wrapper:has(#toggle-light:checked) .card-wrapper:nth-child(2) {
+  background-color: #0e1011;
+}
+.main-wrapper:has(#toggle-light:checked) .heading label {
+  background-color: #F8F8F8;
+  color: #181a1b;
+}
+
+.header-wrapper {
+  padding: clamp(2rem, 5vw, 9.6rem);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: clamp(2rem, 3vw, 3.2rem) clamp(50rem, 70vw, 62.4rem);
   gap: clamp(2rem, 2vw, 9.6rem);
-  padding: clamp(2rem, 5vw, 9.6rem);
 }
-.main-wrapper .header-wrapper .heading {
+
+.heading {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   font-size: clamp(1.6rem, 1.5vw, 2rem);
 }
-.main-wrapper .header-wrapper .heading span:first-child, .main-wrapper .header-wrapper .heading span:last-child {
-  font-family: "Gambetta";
-  font-style: italic;
-  font-size: clamp(2rem, 2.5vw, 3.2rem);
-  color: var(--text-color-muted);
+.heading span:first-child {
+  justify-self: start;
 }
-.main-wrapper .header-wrapper .heading span:first-child {
-  justify-self: left;
-}
-.main-wrapper .header-wrapper .heading span:last-child {
-  justify-self: right;
+.heading span:last-child {
+  justify-self: end;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: clamp(1rem, 1vw, 2rem);
 }
-.main-wrapper .header-wrapper .heading span:last-child label {
+.heading label {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -143,48 +162,50 @@ h1, h2 {
   height: clamp(4rem, 5vw, 6rem);
   border-radius: clamp(1rem, 1.5vw, 1.5rem);
   position: fixed;
-  top: clamp(1rem, 2vw, 20px);
-  background-color: var(--toggle-bg);
-  color: var(--toggle-color);
+  top: clamp(1rem, 2vw, 2rem);
+  background-color: #0E1011;
+  color: #F8F8F8;
+  opacity: 0.5;
 }
-.main-wrapper .header-wrapper .heading span:last-child label svg {
-  width: clamp(20px, 5vw, 40px);
-  height: clamp(20px, 5vw, 40px);
+.heading label svg {
+  width: clamp(2rem, 5vw, 4rem);
+  height: clamp(2rem, 5vw, 4rem);
 }
-.main-wrapper .header-wrapper .description {
+
+.description {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   gap: clamp(1rem, 1vw, 1.6rem);
 }
-.main-wrapper .header-wrapper .description h1 {
+.description h1 {
   font-size: clamp(8rem, 10vw, 32rem);
   text-transform: uppercase;
 }
-.main-wrapper .header-wrapper .description p {
+.description p {
   max-width: 140rem;
   font-weight: 600;
   font-size: clamp(1.6rem, 1.8vw, 8rem);
 }
-.main-wrapper .content-wrapper {
+
+.content-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, clamp(80rem, 100vw, 108rem));
-  gap: 0;
 }
-.main-wrapper .content-wrapper .card-wrapper {
+.content-wrapper .card-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: clamp(1rem, 2vw, 2rem);
-  background-color: var(--bg-main);
+  background-color: #F8F8F8;
 }
-.main-wrapper .content-wrapper .card-wrapper:nth-child(2) {
+.content-wrapper .card-wrapper:nth-child(2) {
   flex-direction: row-reverse;
-  background-color: var(--bg-second);
+  background-color: #FFFFFF;
 }
-.main-wrapper .content-wrapper .small-card {
+.content-wrapper .small-card {
   width: 100%;
   max-width: 80rem;
   min-height: clamp(80rem, 90vw, 108rem);
@@ -192,7 +213,7 @@ h1, h2 {
   background-position: center;
   background-repeat: no-repeat;
 }
-.main-wrapper .content-wrapper .big-card {
+.content-wrapper .big-card {
   width: clamp(90rem, 100vw, 112rem);
   height: clamp(80rem, 90vw, 108rem);
   padding: clamp(4rem, 6vw, 12.8rem);
@@ -201,138 +222,84 @@ h1, h2 {
   grid-template-rows: clamp(30rem, 40vw, 38.4rem) clamp(10rem, 15vw, 14.8rem);
   gap: clamp(20rem, 25vw, 29.2rem);
 }
-.main-wrapper .content-wrapper .big-card .content {
+.content-wrapper .big-card .content {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: clamp(20rem, 25vw, 26.6rem) clamp(8rem, 12vw, 11.2rem);
   gap: clamp(1rem, 1vw, 1.6rem);
 }
-.main-wrapper .content-wrapper .big-card .content h2 {
+.content-wrapper .big-card .content h2 {
   font-size: clamp(5rem, 5vw, 12.8rem);
   line-height: 100%;
   text-transform: uppercase;
   max-width: min-content;
 }
-.main-wrapper .content-wrapper .big-card .content p {
+.content-wrapper .big-card .content p {
   font-weight: 600;
   font-size: clamp(2rem, 2.5vw, 4rem);
   line-height: 140%;
   max-width: 77rem;
 }
-.main-wrapper .content-wrapper .big-card .story {
+.content-wrapper .big-card .story {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(1rem, 2vw, 3.2rem);
 }
-.main-wrapper .content-wrapper .big-card .story .heading {
-  font-family: "Gambetta";
-  font-style: italic;
-  font-size: clamp(2rem, 2.5vw, 3.2rem);
-  color: var(--text-color-muted);
-}
-.main-wrapper .content-wrapper .big-card .story .description {
+.content-wrapper .big-card .story .description {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: clamp(5rem, 8vw, 9.4rem);
 }
-.main-wrapper .content-wrapper .big-card .story .description .left, .main-wrapper .content-wrapper .big-card .story .description .right {
-  justify-self: start;
+.content-wrapper .big-card .story .text-left, .content-wrapper .big-card .story .text-right {
   font-weight: 600;
   font-size: clamp(2rem, 2.5vw, 3.2rem);
 }
-.main-wrapper .content-wrapper .big-card .story .description .right {
+.content-wrapper .big-card .story .text-left {
+  justify-self: start;
+}
+.content-wrapper .big-card .story .text-right {
   justify-self: end;
 }
 
-.main-wrapper:has(#toggle-light:checked) {
-  --text-color: #ffffff;
-  --text-color-muted: rgba(255, 255, 255, 0.6);
-  --bg-main: #181a1b;
-  --bg-second: #0e1011;
-  --toggle-bg: #F8F8F8;
-  --toggle-color: #181a1b;
-}
-
 @media (max-width: 768px) {
-  .main-wrapper .header-wrapper {
+  .header-wrapper {
+    padding: 2rem;
     grid-template-rows: auto auto;
     gap: 2rem;
-    padding: 2rem;
   }
-  .main-wrapper .header-wrapper .heading {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .main-wrapper .header-wrapper .heading span:last-child {
-    justify-self: center;
-  }
-  .main-wrapper .header-wrapper .heading span:last-child label {
-    position: static;
-    margin-top: 1rem;
-  }
-  .main-wrapper .header-wrapper .description {
-    grid-template-rows: auto auto;
-    text-align: center;
-  }
-  .main-wrapper .header-wrapper .description h1 {
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 110%;
-  }
-  .main-wrapper .header-wrapper .description p {
-    max-width: 100%;
-  }
-  .main-wrapper .content-wrapper {
+  .content-wrapper {
     grid-template-rows: auto;
     gap: 2rem;
   }
-  .main-wrapper .content-wrapper .card-wrapper {
+  .card-wrapper {
     flex-direction: column;
     padding: 2rem 1rem;
   }
-  .main-wrapper .content-wrapper .card-wrapper:nth-child(2) {
-    flex-direction: column;
-  }
-  .main-wrapper .content-wrapper .small-card,
-  .main-wrapper .content-wrapper .big-card {
+  .small-card,
+  .big-card {
     width: 100%;
     height: auto;
   }
-  .main-wrapper .content-wrapper .big-card {
+  .big-card {
     padding: 2rem;
     grid-template-rows: auto auto;
     gap: 2rem;
   }
-  .main-wrapper .content-wrapper .big-card .content {
+  .big-card .content {
     grid-template-rows: auto auto;
   }
-  .main-wrapper .content-wrapper .big-card .content h2 {
+  .big-card .content h2 {
     max-width: 100%;
     font-size: clamp(3rem, 8vw, 6rem);
   }
-  .main-wrapper .content-wrapper .big-card .story .description {
+  .big-card .story .description {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .main-wrapper .content-wrapper .big-card .story .description .right {
+  .big-card .story .text-right {
     justify-self: start;
-  }
-}
-@media (min-width: 769px) and (max-width: 1200px) {
-  .main-wrapper .content-wrapper {
-    gap: 3rem;
-  }
-  .main-wrapper .content-wrapper .small-card,
-  .main-wrapper .content-wrapper .big-card {
-    width: 100%;
-    height: auto;
-  }
-  .main-wrapper .content-wrapper .big-card {
-    grid-template-rows: auto auto;
-  }
-  .main-wrapper .header-wrapper {
-    padding: 4rem;
   }
 }
 

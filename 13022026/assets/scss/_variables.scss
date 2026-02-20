@@ -1,9 +1,23 @@
-$default-text: #0E1011;
-$bg-main: #F8F8F8;
-$bg-second: #FFFFFF;
-$toggle-bg: #0E1011;
-$toggle-color: #F8F8F8;
-$body-color: #F5F5F5;
-$text-color: #0E1011;
-$text-color-muted: rgba(14, 16, 17, 0.6);
-$selected-color: rgba(255, 107, 26, 0.3); 
+/* Default variables */
+$selection-color: rgba(255, 89, 0, 0.726); 
+$body-bg-color: #F5F5F5;
+$font-anton: 'Anton SC', sans-serif;
+$font-gambetta: 'Gambetta', sans-serif;
+$font-inter: 'Inter', sans-serif;
+
+/* light theme */
+$light-bg-main: #F8F8F8;
+$light-bg-second: #FFFFFF;
+$light-toggle-bg-color: #0E1011;
+$light-toggle-btn-color: #F8F8F8;
+$light-text-color: #0E1011;
+$light-text-color-muted: rgba(14, 16, 17, 0.6);
+
+
+/* dark theme */
+$dark-text-color: #ffffff;
+$dark-text-color-muted: rgba(255, 255, 255, 0.6);
+$dark-bg-main: #181a1b;
+$dark-bg-second: #0e1011;
+$dark-toggle-bg-color: #F8F8F8;
+$dark-toggle-btn-color: #181a1b;
