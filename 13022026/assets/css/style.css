@@ -252,14 +252,14 @@ h1, h2 {
   grid-template-rows: 1fr;
   gap: clamp(5rem, 8vw, 9.4rem);
 }
-.content-wrapper .card-content .story .text-left, .content-wrapper .card-content .story .text-right {
+.content-wrapper .card-content .story .text {
   font-weight: 600;
   font-size: clamp(2rem, 2.5vw, 3.2rem);
 }
-.content-wrapper .card-content .story .text-left {
+.content-wrapper .card-content .story .text.left {
   justify-self: start;
 }
-.content-wrapper .card-content .story .text-right {
+.content-wrapper .card-content .story .text.right {
   justify-self: end;
 }
 

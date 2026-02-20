@@ -174,15 +174,12 @@ h1, h2 {
 				@include grid(1fr 1fr, 1fr, clamp(5rem, 8vw, 9.4rem));
 			}
 
-			.text-left, .text-right {
+			.text {
 				font-weight: 600;
 				font-size: clamp(2rem, 2.5vw, 3.2rem);
-			}
-			.text-left {
-				justify-self: start;
-			}
-			.text-right {
-				justify-self: end;
+				
+				&.left { justify-self: start; }
+				&.right { justify-self: end; }
 			}
 		}
 	}
