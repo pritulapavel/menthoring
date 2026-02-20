@@ -141,7 +141,7 @@ h1, h2 {
 		background-repeat: no-repeat;
 	}
 
-	.big-card {
+	.card-content {
 		width: clamp(90rem, 100vw, 112rem);
 		height: clamp(80rem, 90vw, 108rem);
 		padding: clamp(4rem, 6vw, 12.8rem);
@@ -204,12 +204,12 @@ h1, h2 {
 		padding: 2rem 1rem;
 	}
 	.article-img,
-	.big-card {
+	.card-content {
 		width: 100%;
 		height: auto;
 	}
 
-	.big-card {
+	.card-content {
 		padding: 2rem;
 		grid-template-rows: auto auto;
 		gap: 2rem;

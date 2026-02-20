@@ -84,7 +84,7 @@ figcaption {
   display: none;
 }
 
-.content-wrapper .big-card .story .heading, .heading span:first-child,
+.content-wrapper .card-content .story .heading, .heading span:first-child,
 .heading span:last-child {
   font-family: "Gambetta", sans-serif;
   font-style: italic;
@@ -213,7 +213,7 @@ h1, h2 {
   background-position: center;
   background-repeat: no-repeat;
 }
-.content-wrapper .big-card {
+.content-wrapper .card-content {
   width: clamp(90rem, 100vw, 112rem);
   height: clamp(80rem, 90vw, 108rem);
   padding: clamp(4rem, 6vw, 12.8rem);
@@ -222,44 +222,44 @@ h1, h2 {
   grid-template-rows: clamp(30rem, 40vw, 38.4rem) clamp(10rem, 15vw, 14.8rem);
   gap: clamp(20rem, 25vw, 29.2rem);
 }
-.content-wrapper .big-card .content {
+.content-wrapper .card-content .content {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: clamp(20rem, 25vw, 26.6rem) clamp(8rem, 12vw, 11.2rem);
   gap: clamp(1rem, 1vw, 1.6rem);
 }
-.content-wrapper .big-card .content h2 {
+.content-wrapper .card-content .content h2 {
   font-size: clamp(5rem, 5vw, 12.8rem);
   line-height: 100%;
   text-transform: uppercase;
   max-width: min-content;
 }
-.content-wrapper .big-card .content p {
+.content-wrapper .card-content .content p {
   font-weight: 600;
   font-size: clamp(2rem, 2.5vw, 4rem);
   line-height: 140%;
   max-width: 77rem;
 }
-.content-wrapper .big-card .story {
+.content-wrapper .card-content .story {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(1rem, 2vw, 3.2rem);
 }
-.content-wrapper .big-card .story .description {
+.content-wrapper .card-content .story .description {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: clamp(5rem, 8vw, 9.4rem);
 }
-.content-wrapper .big-card .story .text-left, .content-wrapper .big-card .story .text-right {
+.content-wrapper .card-content .story .text-left, .content-wrapper .card-content .story .text-right {
   font-weight: 600;
   font-size: clamp(2rem, 2.5vw, 3.2rem);
 }
-.content-wrapper .big-card .story .text-left {
+.content-wrapper .card-content .story .text-left {
   justify-self: start;
 }
-.content-wrapper .big-card .story .text-right {
+.content-wrapper .card-content .story .text-right {
   justify-self: end;
 }
 
@@ -278,27 +278,27 @@ h1, h2 {
     padding: 2rem 1rem;
   }
   .article-img,
-  .big-card {
+  .card-content {
     width: 100%;
     height: auto;
   }
-  .big-card {
+  .card-content {
     padding: 2rem;
     grid-template-rows: auto auto;
     gap: 2rem;
   }
-  .big-card .content {
+  .card-content .content {
     grid-template-rows: auto auto;
   }
-  .big-card .content h2 {
+  .card-content .content h2 {
     max-width: 100%;
     font-size: clamp(3rem, 8vw, 6rem);
   }
-  .big-card .story .description {
+  .card-content .story .description {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .big-card .story .text-right {
+  .card-content .story .text-right {
     justify-self: start;
   }
 }
