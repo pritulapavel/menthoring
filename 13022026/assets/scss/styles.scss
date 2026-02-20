@@ -132,7 +132,7 @@ h1, h2 {
 		}
 	}
 
-	.small-card {
+	.article-img {
 		width: 100%;
 		max-width: 80rem;
 		min-height: clamp(80rem, 90vw, 108rem);
@@ -203,7 +203,7 @@ h1, h2 {
 		flex-direction: column;
 		padding: 2rem 1rem;
 	}
-	.small-card,
+	.article-img,
 	.big-card {
 		width: 100%;
 		height: auto;
